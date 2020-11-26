@@ -7,7 +7,8 @@ int is_whitespace (char c)
 	if ( c== ' ' ||
 		 c == '\n' ||
 		 c == '\r' ||
-		 c == '\t')
+		 c == '\t' ||
+		 c == '(')
 		 return 1	;
 		 
 		 return 0	; 
@@ -61,16 +62,16 @@ int main (int argc, char *argv[]) {
 		return -1	;
 	}
 	
-	cnt = fget_word(fp, word)	;
-	printf("%s (%i)\n", word, cnt)	;
-	
-	cnt = fget_word(fp, word)	;
-	printf("%s (%i)\n", word, cnt)	;
-	
-	cnt = fget_word(fp, word)	;
-	printf("%s (%i)\n", word, cnt)	;
+	while(fget_word(fp, word) != 0)
+	{
+		count_word(word)	;
+	}
+	print_word ()	;
+
 	
 	fclose(fp)	;
+	
+	return 0	;
 	
 	
 }
